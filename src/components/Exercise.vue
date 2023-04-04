@@ -1,14 +1,9 @@
 <template>
-	<template v-for="exercise in props.day.exercises">
+	<template
+		v-if="!state.loading"
+		v-for="exercise in props.day.exercises"
+	>
 		<h3>{{ exercise.name }}</h3>
-		<div class="input-label-container">
-			<label>Enter 1RM</label>
-			<n-input-number
-				v-model:value="exercise.oneRm"
-				placeholder="Enter 1RM..."
-				class="rm-input"
-			/>
-		</div>
 		<n-table>
 			<thead>
 				<tr>
@@ -22,35 +17,46 @@
 			</thead>
 			<tbody>
 				<tr
-					v-for="(set, index) in exercise.sets"
+					v-for="(index) in exerciseSets(exercise.isAccessory)"
 					:key="index"
 				>
-					<td>{{ set }}</td>
-					<td v-if="Array.isArray(exercise.intensity)">{{ exercise.intensity[index] }}%</td>
-					<td v-else>{{ exercise.intensity }}%</td>
-					<td v-if="Array.isArray(exercise.target)">{{ exercise.target[index] }} reps</td>
-					<td v-else>{{ exercise.target }} reps</td>
+					<td>{{ index }}</td>
+					<td>
+						<template v-if="!exercise.isAccessory">{{ exerciseIntensity[index - 1] }}</template>
+						<template v-else-if="exercise.isAccessory && props.weekId !== 4">50</template>
+						<template v-else>40</template>%
+					</td>
+					<td>
+						<template v-if="!exercise.isAccessory && exerciseTarget">{{ exerciseTarget[index - 1] }}</template>
+						<template v-if="exercise.isAccessory">10</template>
+						reps
+					</td>
 					<td>
 						<n-input-number
-							v-if="Array.isArray(exercise.intensity)"
-							:placeholder="intensityWeight(exercise.intensity[index], exercise.oneRm)"
+							v-if="!exercise.isAccessory"
+							:placeholder="intensityWeight(exerciseIntensity[index - 1], exercise.name)"
+							class="table-number-input"
+						></n-input-number>
+						<n-input-number
+							v-else-if="exercise.isAccessory && props.weekId !== 4"
+							:placeholder="intensityWeight(50, exercise.name)"
 							class="table-number-input"
 						></n-input-number>
 						<n-input-number
 							v-else
-							:placeholder="intensityWeight(exercise.intensity, exercise.oneRm)"
+							:placeholder="intensityWeight(40, exercise.name)"
 							class="table-number-input"
 						></n-input-number>
 					</td>
 					<td>
 						<n-input-number
-							v-if="Array.isArray(exercise.target)"
-							:placeholder="exercise.target[index].toString()"
+							v-if="Array.isArray(exercise)"
+							:placeholder="exercise[index].toString()"
 							class="table-number-input"
 						></n-input-number>
 						<n-input-number
 							v-else
-							:placeholder="exercise.target.toString()"
+							:placeholder="exercise.toString()"
 							class="table-number-input"
 						></n-input-number>
 					</td>
@@ -68,14 +74,20 @@ import { NTable, NInputNumber, NCheckbox } from 'naive-ui'
 import { reactive, computed } from 'vue'
 
 interface Props {
+	oneRm: {
+		squat: number,
+		deadlift: number,
+		bench: number,
+		overhead: number,
+		pulldown: number,
+		row: number
+	}
+	weekId: number
 	day: {
 		dayId: number
 		exercises: {
 			name: string
-			oneRm: number | null
-			intensity: number | number[]
-			target: number | number[]
-			sets: number
+			isAccessory: boolean
 		}[]
 	}
 }
@@ -85,20 +97,40 @@ const props = defineProps<Props>()
 class State {
 	public oneRm: number | null = null
 	public target: number = 5
+	public loading: boolean = false
 }
 
-function intensityWeight(percent: number, oneRm: number | null): string {
-	if (oneRm !== null) {
-		const roundToTwoPointFive = Math.floor(((oneRm * percent) / 100) / 2.5) * 2.5
+function intensityWeight(percent: number, exerciseName: any): string {
+		let x: number = 0
+
+		if (exerciseName === "Squat") x = props.oneRm.squat
+		else if (exerciseName === "Deadlift") x = props.oneRm.deadlift
+		else if (exerciseName === "Bench press") x = props.oneRm.bench
+		else if (exerciseName === "Lat pulldown") x = props.oneRm.pulldown
+		else if (exerciseName === "Overhead press") x = props.oneRm.overhead
+		else if (exerciseName === "Bent-over row") x = props.oneRm.row
+
+		const roundToTwoPointFive = Math.floor(((x * percent) / 100) / 2.5) * 2.5
+
 		return roundToTwoPointFive.toString()
-	} else {
-		return "0"
-	}
 }
 
-const targetToString = computed(() => {
-	const stringValue = state.target
-	return stringValue.toString()
+function exerciseSets(isAccessory: boolean) {
+	if (isAccessory) return 7
+	else return 8
+}
+
+const exerciseIntensity = computed(() => {
+	if (props.weekId === 1) return [65, 75, 85, 65, 65, 65, 65, 65]
+	else if (props.weekId === 2) return [70, 80, 90, 70, 70, 70, 70, 70]
+	else if (props.weekId === 3) return [75, 85, 95, 75, 75, 75, 75, 75]
+	else return [40, 50, 60, 40, 40, 40, 40, 40]
+})
+
+const exerciseTarget = computed(() => {
+	if (props.weekId === 1 || props.weekId === 4) return [5, 5, 5, 5, 5, 5, 5, 5]
+	else if (props.weekId === 2) return [3, 3, 3, 5, 5, 5, 5, 5]
+	else if (props.weekId === 3) return [5, 3, 1, 5, 5, 5, 5, 5]
 })
 
 const state = reactive(new State())
@@ -107,15 +139,6 @@ const state = reactive(new State())
 <style lang="scss" scoped>
 h3 {
 	text-align: left;
-}
-
-.input-label-container {
-	margin-bottom: 10px;
-	text-align: left;
-
-	.rm-input {
-		margin-top: 5px;
-	}
 }
 
 .table-number-input {
