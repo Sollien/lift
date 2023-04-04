@@ -1,6 +1,8 @@
 <template>
 	<n-config-provider :theme="darkTheme">
-		<WorkoutRoutine />
+		<div class="main-content">
+			<WorkoutRoutine />
+		</div>
 	</n-config-provider>
 </template>
 
@@ -11,16 +13,8 @@ import { darkTheme } from 'naive-ui'
 </script>
 
 <style scoped>
-.logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-	transition: filter 300ms;
-}
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-	filter: drop-shadow(0 0 2em #42b883aa);
+.main-content {
+	max-width: 1000px;
+	width: 750px;
 }
 </style>
