@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import WorkoutRoutine from './components/WorkoutRoutine.vue'
+import WorkoutRoutine from './views/WorkoutRoutine.vue'
 import { NConfigProvider } from 'naive-ui'
 import { darkTheme } from 'naive-ui'
 </script>
