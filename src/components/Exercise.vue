@@ -8,7 +8,7 @@
 				<tr>
 					<th>Set</th>
 					<th>Intensity</th>
-					<th>Kg</th>
+					<th>Weight</th>
 					<th>Reps</th>
 					<th></th>
 				</tr>
