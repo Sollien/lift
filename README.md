@@ -1,4 +1,4 @@
-# Lift (Work in progress)
+# Lift 💪 (Work in progress)
 
 ## Project description
 
