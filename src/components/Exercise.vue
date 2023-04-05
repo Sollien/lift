@@ -1,6 +1,5 @@
 <template>
 	<template
-		v-if="!state.loading"
 		v-for="exercise in props.day.exercises"
 	>
 		<h3>{{ exercise.name }}</h3>
@@ -30,16 +29,19 @@
 							v-if="!exercise.isAccessory"
 							:placeholder="intensityWeight(exerciseIntensity[index - 1], exercise.name)"
 							class="table-number-input"
+							:show-button="false"
 						></n-input-number>
 						<n-input-number
 							v-else-if="exercise.isAccessory && props.weekId !== 4"
 							:placeholder="intensityWeight(50, exercise.name)"
 							class="table-number-input"
+							:show-button="false"
 						></n-input-number>
 						<n-input-number
 							v-else
 							:placeholder="intensityWeight(40, exercise.name)"
 							class="table-number-input"
+							:show-button="false"
 						></n-input-number>
 					</td>
 					<td>
@@ -47,11 +49,13 @@
 							v-if="!exercise.isAccessory && exerciseTarget"
 							:placeholder="exerciseTarget[index - 1].toString()"
 							class="table-number-input"
+							:show-button="false"
 						></n-input-number>
 						<n-input-number
 							v-else
 							placeholder="10"
 							class="table-number-input"
+							:show-button="false"
 						></n-input-number>
 					</td>
 					<td>
@@ -65,7 +69,7 @@
 
 <script lang="ts" setup>
 import { NTable, NInputNumber, NCheckbox } from 'naive-ui'
-import { reactive, computed } from 'vue'
+import { computed } from 'vue'
 
 interface Props {
 	oneRm: {
@@ -87,10 +91,6 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-
-class State {
-	public loading: boolean = false
-}
 
 function intensityWeight(percent: number, exerciseName: any): string {
 		let x: number = 0
@@ -124,8 +124,6 @@ const exerciseTarget = computed(() => {
 	else if (props.weekId === 2) return [3, 3, 3, 5, 5, 5, 5, 5]
 	else if (props.weekId === 3) return [5, 3, 1, 5, 5, 5, 5, 5]
 })
-
-const state = reactive(new State())
 </script>
 
 <style lang="scss" scoped>
@@ -134,6 +132,6 @@ h3 {
 }
 
 .table-number-input {
-	width: 100px;
+	width: 50px;
 }
 </style>
