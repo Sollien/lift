@@ -58,7 +58,7 @@
 							:show-button="false"
 						></n-input-number>
 					</td>
-					<td>
+					<td class="txt-right">
 						<n-checkbox size="large" />
 					</td>
 				</tr>
