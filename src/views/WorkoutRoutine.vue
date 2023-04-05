@@ -4,7 +4,7 @@
 		<span class="h1-echo">Powerlifting routine</span>
 		<span class="h1-echo">Powerlifting routine</span>
 	</div>
-	<div class="border-bottom"></div>
+	<span class="wavy-border">~~~~~~~~~~</span>
 	<n-collapse
 		class="rm-collapse"
 	>
@@ -137,8 +137,10 @@ const state = reactive(new State())
 
 <style scoped lang="scss">
 h1 {
+	margin-top: 0;
 	text-align: left;
 	color: #63e2b7;
+	font-family: 'Bangers', cursive;
 }
 
 h3 {
@@ -149,19 +151,28 @@ h3 {
 	position: absolute;
 	top: 6px;
 	left: 6px;
-	font-size: 3.2em;
+	font-family: 'Bangers', cursive;
+	font-size: 3.5em;
 	font-weight: bold;
 	line-height: 1.1;
 	text-align: left;
-	color: #e26363b9;
+	color: #439479b5;
 	z-index: -1;
 
 	&:nth-of-type(2) {
-		color: #7663e258;
+		color: #234e4057;
 		top: 12px;
 		left: 12px;
 		z-index: -2;
 	}
+}
+
+.wavy-border {
+	display: block;
+	margin-bottom: 20px;
+	text-align: left;
+	font-size: 30px;
+	color: #63e2b7;
 }
 
 .rm-collapse {
@@ -174,7 +185,6 @@ h3 {
 
 	.rm-input {
 		margin-top: 5px;
-		margin-bottom: 20px;
 	}
 }
 </style>
