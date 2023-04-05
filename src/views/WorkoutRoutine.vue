@@ -1,4 +1,5 @@
 <template>
+	<h1>Powerlifting routine</h1>
 	<n-collapse
 		class="rm-collapse"
 	>
@@ -112,6 +113,10 @@ const state = reactive(new State())
 </script>
 
 <style scoped lang="scss">
+h1 {
+	text-align: left;
+}
+
 h3 {
 	text-align: left;
 }
