@@ -50,13 +50,13 @@
 					</td>
 					<td>
 						<n-input-number
-							v-if="Array.isArray(exercise)"
-							:placeholder="exercise[index].toString()"
+							v-if="!exercise.isAccessory && exerciseTarget"
+							:placeholder="exerciseTarget[index - 1].toString()"
 							class="table-number-input"
 						></n-input-number>
 						<n-input-number
 							v-else
-							:placeholder="exercise.toString()"
+							placeholder="10"
 							class="table-number-input"
 						></n-input-number>
 					</td>
@@ -95,8 +95,6 @@ interface Props {
 const props = defineProps<Props>()
 
 class State {
-	public oneRm: number | null = null
-	public target: number = 5
 	public loading: boolean = false
 }
 
