@@ -1,5 +1,8 @@
 <template>
-	<n-config-provider :theme="darkTheme">
+	<n-config-provider
+		:theme="darkTheme"
+		class="config-provider"
+	>
 		<div class="main-content">
 			<WorkoutRoutine />
 		</div>
@@ -12,7 +15,11 @@ import { NConfigProvider } from 'naive-ui'
 import { darkTheme } from 'naive-ui'
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.config-provider {
+	display: flex;
+	justify-content: center;
+}
 
 .main-content {
 	min-width: 100%;
