@@ -132,6 +132,6 @@ h3 {
 }
 
 .table-number-input {
-	width: 50px;
+	width: 60px;
 }
 </style>
