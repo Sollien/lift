@@ -138,6 +138,7 @@ const state = reactive(new State())
 <style scoped lang="scss">
 h1 {
 	margin-top: 0;
+	margin-bottom: 20px;
 	text-align: left;
 	color: #63e2b7;
 	font-family: 'Bangers', cursive;
@@ -152,7 +153,7 @@ h3 {
 	top: 6px;
 	left: 6px;
 	font-family: 'Bangers', cursive;
-	font-size: 3.5em;
+	font-size: 3.8em;
 	font-weight: bold;
 	line-height: 1.1;
 	text-align: left;
