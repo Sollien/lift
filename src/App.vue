@@ -14,6 +14,11 @@ import { darkTheme } from 'naive-ui'
 
 <style scoped>
 
+.main-content {
+	min-width: 100%;
+	width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
 	.main-content {
 		max-width: 1000px;
