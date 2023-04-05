@@ -13,8 +13,11 @@ import { darkTheme } from 'naive-ui'
 </script>
 
 <style scoped>
-.main-content {
-	max-width: 1000px;
-	width: 750px;
+
+@media only screen and (min-width: 768px) {
+	.main-content {
+		max-width: 1000px;
+		width: 750px;
+	}
 }
 </style>
