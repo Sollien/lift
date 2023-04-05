@@ -9,7 +9,6 @@
 				<tr>
 					<th>Set</th>
 					<th>Intensity</th>
-					<th>Target</th>
 					<th>Kg</th>
 					<th>Reps</th>
 					<th></th>
@@ -25,11 +24,6 @@
 						<template v-if="!exercise.isAccessory">{{ exerciseIntensity[index - 1] }}</template>
 						<template v-else-if="exercise.isAccessory && props.weekId !== 4">50</template>
 						<template v-else>40</template>%
-					</td>
-					<td>
-						<template v-if="!exercise.isAccessory && exerciseTarget">{{ exerciseTarget[index - 1] }}</template>
-						<template v-if="exercise.isAccessory">10</template>
-						reps
 					</td>
 					<td>
 						<n-input-number
