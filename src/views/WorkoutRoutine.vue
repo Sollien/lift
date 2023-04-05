@@ -9,43 +9,55 @@
 		class="rm-collapse"
 	>
 		<n-collapse-item title="One RM max for exercises" name="1">
-			<div class="input-label-container">
-				<label>Squat 1RM</label>
-				<n-input-number
-					v-model:value="state.oneRm.squat"
-					placeholder="Enter 1RM..."
-					class="rm-input"
-				/>
-				<label>Deadlift 1RM</label>
-				<n-input-number
-					v-model:value="state.oneRm.deadlift"
-					placeholder="Enter 1RM..."
-					class="rm-input"
-				/>
-				<label>Overhead press 1RM</label>
-				<n-input-number
-					v-model:value="state.oneRm.overhead"
-					placeholder="Enter 1RM..."
-					class="rm-input"
-				/>
-				<label>Bench press 1RM</label>
-				<n-input-number
-					v-model:value="state.oneRm.bench"
-					placeholder="Enter 1RM..."
-					class="rm-input"
-				/>
-				<label>Lat pulldown 1RM</label>
-				<n-input-number
-					v-model:value="state.oneRm.pulldown"
-					placeholder="Enter 1RM..."
-					class="rm-input"
-				/>
-				<label>Bent-over row 1RM</label>
-				<n-input-number
-					v-model:value="state.oneRm.row"
-					placeholder="Enter 1RM..."
-					class="rm-input"
-				/>
+			<div class="grid-2-small-gap">
+				<div class="input-label-container">
+					<label>Squat</label>
+					<n-input-number
+						v-model:value="state.oneRm.squat"
+						placeholder="Enter 1RM..."
+						class="rm-input"
+					/>
+				</div>
+				<div class="input-label-container">
+					<label>Deadlift</label>
+					<n-input-number
+						v-model:value="state.oneRm.deadlift"
+						placeholder="Enter 1RM..."
+						class="rm-input"
+					/>
+				</div>
+				<div class="input-label-container">
+					<label>Overhead press</label>
+					<n-input-number
+						v-model:value="state.oneRm.overhead"
+						placeholder="Enter 1RM..."
+						class="rm-input"
+					/>
+				</div>
+				<div class="input-label-container">
+					<label>Bench press</label>
+					<n-input-number
+						v-model:value="state.oneRm.bench"
+						placeholder="Enter 1RM..."
+						class="rm-input"
+					/>
+				</div>
+				<div class="input-label-container">
+					<label>Lat pulldown</label>
+					<n-input-number
+						v-model:value="state.oneRm.pulldown"
+						placeholder="Enter 1RM..."
+						class="rm-input"
+					/>
+				</div>
+				<div class="input-label-container">
+					<label>Bent-over row</label>
+					<n-input-number
+						v-model:value="state.oneRm.row"
+						placeholder="Enter 1RM..."
+						class="rm-input"
+					/>
+				</div>
 			</div>
 		</n-collapse-item>
 	</n-collapse>
