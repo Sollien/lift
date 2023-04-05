@@ -64,7 +64,13 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { NTabs, NTabPane, NInputNumber, NCollapse, NCollapseItem } from 'naive-ui'
+import {
+	NTabs,
+	NTabPane,
+	NInputNumber,
+	NCollapse,
+	NCollapseItem,
+} from 'naive-ui'
 import WorkoutWeek from '../components/WorkoutWeek.vue'
 
 interface WeekProgram {
