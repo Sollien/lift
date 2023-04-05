@@ -58,6 +58,10 @@ button:focus, button:focus-visible {
   text-align: right;
 }
 
+.relative {
+  position: relative;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;

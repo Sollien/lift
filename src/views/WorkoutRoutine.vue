@@ -1,5 +1,10 @@
 <template>
-	<h1>Powerlifting routine</h1>
+	<div class="relative">
+		<h1>Powerlifting routine</h1>
+		<span class="h1-echo">Powerlifting routine</span>
+		<span class="h1-echo">Powerlifting routine</span>
+	</div>
+	<div class="border-bottom"></div>
 	<n-collapse
 		class="rm-collapse"
 	>
@@ -121,10 +126,30 @@ const state = reactive(new State())
 <style scoped lang="scss">
 h1 {
 	text-align: left;
+	color: #63e2b7;
 }
 
 h3 {
 	text-align: left;
+}
+
+.h1-echo {
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	font-size: 3.2em;
+	font-weight: bold;
+	line-height: 1.1;
+	text-align: left;
+	color: #e26363b9;
+	z-index: -1;
+
+	&:nth-of-type(2) {
+		color: #7663e258;
+		top: 12px;
+		left: 12px;
+		z-index: -2;
+	}
 }
 
 .rm-collapse {
