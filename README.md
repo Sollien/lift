@@ -2,7 +2,7 @@
 
 ## Project description
 
-I do powerlifting workouts and follow a program with a monthly cycle. I've been looking for an easy way to calculate my progression for the monthly cycles, but have found that most apps have minor nuisances. Therefore, I've been trying to build my own progression tracker, tailored just to my needs.
+I do powerlifting workouts and follow a program with a monthly cycle. I've been looking for an easy way to calculate my progression for the monthly cycles, but have found that most apps have minor nuisances. Therefore, I've been trying to build my own progression tracker, tailored just to my needs. See [live demo](https://lift-routine.netlify.app/).
 
 ## Technologies
 
