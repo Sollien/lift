@@ -42,7 +42,10 @@ import { darkTheme } from 'naive-ui'
 	display: flex;
 	align-items: center;
 	width: 100%;
-	margin-bottom: 10px;
+	height: 50px;
+	margin-bottom: 40px;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid rgb(58, 58, 58);
 
 	.logo {
 		width: 50px;
@@ -82,6 +85,10 @@ import { darkTheme } from 'naive-ui'
 		max-width: 700px;
 		min-width: 300px;
 		width: 700px;
+	}
+
+	.site-header {
+		height: 80px;
 	}
 }
 </style>
