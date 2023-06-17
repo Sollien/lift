@@ -3,6 +3,17 @@
 		:theme="darkTheme"
 		class="config-provider"
 	>
+		<header class="site-header">
+			<img
+				src="./assets/pwr_logo.svg"
+				class="logo"
+			/>
+			<div class="relative">
+				<h1>PWR</h1>
+				<span class="h1-echo">PWR</span>
+				<span class="h1-echo">PWR</span>
+			</div>
+		</header>
 		<div class="main-content">
 			<WorkoutRoutine />
 		</div>
@@ -18,12 +29,52 @@ import { darkTheme } from 'naive-ui'
 <style scoped lang="scss">
 .config-provider {
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .main-content {
 	min-width: 100%;
 	width: 100%;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 10px;
+
+	.logo {
+		width: 50px;
+	}
+
+	h1 {
+		position: relative;
+		text-align: left;
+		color: #FFB930;
+		font-family: 'Bangers', cursive;
+		font-size: 3em;
+	}
+
+	.h1-echo {
+		position: absolute;
+		top: 32px;
+		left: 5px;
+		font-family: 'Bangers', cursive;
+		font-size: 3em;
+		font-weight: bold;
+		line-height: 1.1;
+		text-align: left;
+		color: #ffba3081;
+		z-index: -1;
+
+		&:nth-of-type(2) {
+			color: #ffba301a;
+			top: 36px;
+			left: 9px;
+			z-index: -2;
+		}
+	}
 }
 
 @media only screen and (min-width: 768px) {

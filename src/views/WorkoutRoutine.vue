@@ -1,10 +1,4 @@
 <template>
-	<div class="relative">
-		<h1>Powerlifting routine</h1>
-		<span class="h1-echo">Powerlifting routine</span>
-		<span class="h1-echo">Powerlifting routine</span>
-	</div>
-	<span class="wavy-border">~~~~~~~~~~</span>
 	<n-collapse
 		class="rm-collapse"
 	>
@@ -136,36 +130,8 @@ const state = reactive(new State())
 </script>
 
 <style scoped lang="scss">
-h1 {
-	margin-top: 0;
-	margin-bottom: 20px;
-	text-align: left;
-	color: #63e2b7;
-	font-family: 'Bangers', cursive;
-}
-
 h3 {
 	text-align: left;
-}
-
-.h1-echo {
-	position: absolute;
-	top: 6px;
-	left: 6px;
-	font-family: 'Bangers', cursive;
-	font-size: 3.8em;
-	font-weight: bold;
-	line-height: 1.1;
-	text-align: left;
-	color: #439479b5;
-	z-index: -1;
-
-	&:nth-of-type(2) {
-		color: #234e4057;
-		top: 12px;
-		left: 12px;
-		z-index: -2;
-	}
 }
 
 .wavy-border {
